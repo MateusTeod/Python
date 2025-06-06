@@ -1,11 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>UpDesk - Home</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+    body {
+        font-family: "Abel", sans-serif;
+        background: #000000; /* Changed to a light gray color */
+    }
+  
+</style>
+{% endblock %}
+    
+
+{% block body %}
+    
+
     <h1>Bem-vindo ao sistema UpDesk!</h1>
     <p>Você está logado.</p>
-</body>
-</html>
+
+{% endblock %}
+
