@@ -58,18 +58,31 @@ def botao_adicao():
 def botao_porc():
     return
 def botao_clear():
-    return
+    e.delete(0, END)
+    
 def botao_igual():
     global subtracao
     global adicao
     global multiplica
     global divisao
+    global numero1
     numero2 = e.get()
     e.delete(0, END)
     if adicao == TRUE:
-        e.insert(0, int(numero1) = int(numero2))
+        e.insert(0, str(int(numero1) + int(numero2)))
         adicao = FALSE
-    if multiplica == TRUE:
+    elif subtracao == TRUE:
+        e.insert(0, str(int(numero1) - int(numero2)))
+        subtracao = FALSE
+    elif multiplica == TRUE:
+        e.insert(0, str(int(numero1) * int(numero2)))
+        multiplica = FALSE
+    elif divisao == TRUE:
+        try:
+            e.insert(0, str(int(numero1) / int(numero2)))
+        except ZeroDivisionError:
+            e.insert(0, "Erro")
+        divisao = FALSE
         
 
 #botao de divisao

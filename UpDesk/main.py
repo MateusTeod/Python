@@ -2,16 +2,16 @@
 from flask import Flask, request, jsonify, render_template, url_for
 from flask_cors import CORS
 from datetime import datetime
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine 
 
 
-
+# banco de dados fictício
 usuarios = [
     {"id": 1, "nome": "João Silva", "email": "joao@email.com", "senha": "123456", "tipo": "usuario"},
     {"id": 2, "nome": "Maria Suporte", "email": "maria@email.com", "senha": "abc123", "tipo": "suporte_n1"}
 ]
 
-chamados = []
+chamados = [] # lista de chamados vazia
 
 app = Flask(__name__)
 CORS(app)
@@ -22,14 +22,14 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def login():
-    data = request.json
-    if not data:
+    data = request.json # obtém os dados do JSON enviado no corpo da requisição
+    if not data: # verifica se os dados estão vazios
         return jsonify({"mensagem": "Dados inválidos!"}), 400
 
     email = data.get('email')
     senha = data.get('senha')
 
-    for usuario in usuarios:
+    for usuario in usuarios:   # percorre a lista de usuários (verifica se o email e a senha correspondem a um usuário)
         if usuario['email'] == email and usuario['senha'] == senha:
             return jsonify({
                 "mensagem": "Login realizado com sucesso!",
@@ -56,6 +56,7 @@ def abrir_chamado():
     if not data:
         return jsonify({"mensagem": "Dados inválidos!"}), 400
     
+    # insere um novo chamado na lista de chamados
     chamado = {
         "id": len(chamados) + 1,
         "titulo": data.get("titulo"),
