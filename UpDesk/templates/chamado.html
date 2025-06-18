@@ -43,6 +43,10 @@
             border: none;
             cursor: pointer;
         }
+        button:hover {
+            background-color: #1a3d6b;
+        }
+
         #mensagem {
             text-align: center;
         }
@@ -54,12 +58,26 @@
             font-size: 24px;
             color: #000000;
         }
+        .voltar {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            background-color: #DFE2E8;
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+        
+        .voltar:hover {
+            background-color: #c0c4cc;
+        }
     </style>
 </head>
 <body>
     <div class="form-container">
         <h2 clas="titulo">Abertura do Chamado</h2>
-        <p>Titulo/Categorização do chamado</p>
+        <p>Titulo/ Categorização do chamado</p>
         <input type="text" id="titulo" placeholder="Título" required>
         <p>descriçao do chamado</p>
         <textarea id="descricao" placeholder="Descreva o problema..." rows="4" required></textarea>
@@ -71,6 +89,7 @@
         </select>
         <input type="number" id="usuario_id" placeholder="ID do usuário" required>
         <button onclick="abrirChamado()">Buscar soluçao com IA</button>
+        <a class="voltar" href="{{ url_for('home') }}" class="voltar btn">Voltar</a>
         <p id="mensagem"></p>
     </div>
 
