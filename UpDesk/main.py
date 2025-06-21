@@ -1,8 +1,9 @@
 
 from flask import Flask, request, jsonify, render_template, url_for
-from flask_cors import CORS
+from flask_cors import CORS 
 from datetime import datetime
-from sqlalchemy import create_engine 
+from sqlalchemy import create_engine
+import urllib
 
 
 # banco de dados fictício

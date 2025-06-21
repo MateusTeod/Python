@@ -13,21 +13,30 @@
             background-color: #e6f0ff;
             padding: 40px;
         }
+
         .form-container {
             max-width: 500px;
-            margin: auto;
+            margin: 30px auto;
             background: white;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 0 10px #aaa;
         }
+
         input, textarea, select, button {
             width: 100%;
-            margin-bottom: 15px;
+            margin-bottom: 30px;
             padding: 10px;
             border-radius: 5px;
             background: #DFE3EA;
         }
+
+        /* Espaço extra entre os elementos do formulário */
+        .form-container > *:not(:last-child) {
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
         button {
             display: inline-flex;
             height: 40px;
@@ -36,12 +45,21 @@
             justify-content: center;
             align-items: center;
             flex-shrink: 0;
-            border-radius: 50px;
+            border-radius: 50px !important;
             border: 1px solid #000;
             background: #2B4C7E;
             color: white;
             border: none;
             cursor: pointer;
+        }
+        .botoes-container {
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+            row-gap: 10px;
         }
         button:hover {
             background-color: #1a3d6b;
@@ -59,14 +77,23 @@
             color: #000000;
         }
         .voltar {
-            display: inline-block;
-            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            flex-wrap: wrap;
+            flex-direction: column;
+            row-gap: 10px;
             text-decoration: none;
-            color: #000000;
-            font-weight: bold;
-            background-color: #DFE2E8;
-            padding: 10px 20px;
-            border-radius: 50px;
+            height: 40px;
+            width: 100px;
+            padding: 20px;
+            align-items: center;
+            flex-shrink: 0;
+            border-radius: 50px !important;
+            border: 1px solid #000;
+            background: #DFE2E8;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
         }
         
         .voltar:hover {
@@ -75,6 +102,8 @@
     </style>
 </head>
 <body>
+    {% include 'navbar.html' %}
+
     <div class="form-container">
         <h2 clas="titulo">Abertura do Chamado</h2>
         <p>Titulo/ Categorização do chamado</p>
@@ -88,7 +117,7 @@
             <option value="Empresa ao todo">Empresa ao todo</option>
         </select>
         <input type="number" id="usuario_id" placeholder="ID do usuário" required>
-        <button onclick="abrirChamado()">Buscar soluçao com IA</button>
+        <button class="botoes-container" onclick="abrirChamado()">Buscar soluçao com IA</button>
         <a class="voltar" href="{{ url_for('home') }}" class="voltar btn">Voltar</a>
         <p id="mensagem"></p>
     </div>
