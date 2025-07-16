@@ -4,7 +4,19 @@ from flask_cors import CORS
 from datetime import datetime
 from sqlalchemy import create_engine
 import urllib
+import pyodbc
 
+
+
+dados_conexao = (
+    "Driver={SQL Server};"
+    "Server=DESKTOP-74GJQQ6;"
+    "Database=UpDesk;"
+)
+
+conexao = pyodbc.connect(dados_conexao)
+
+print("Conexão com o banco de dados estabelecida com sucesso!")
 
 # banco de dados fictício
 usuarios = [
@@ -16,6 +28,7 @@ chamados = [] # lista de chamados vazia
 
 app = Flask(__name__)
 CORS(app)
+
 
 @app.route('/')
 def index():
