@@ -43,6 +43,7 @@ class Usuario(db.Model):
     senha = db.Column(db.String(100), nullable=False)
     tipo = db.Column(db.String(50), nullable=False)
 
+
 # Cria as tabelas no banco de dados
 with app.app_context():
     db.create_all()
@@ -72,7 +73,7 @@ def login():
     session['usuario_nome'] = Usuario["nome"]
     if not usuario:
         return jsonify({"mensagem": "Usuário ou senha inválidos"}), 401
-        
+
     return jsonify({
         "mensagem": "Login realizado com sucesso!",
         "usuario": {

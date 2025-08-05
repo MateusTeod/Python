@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Rocha Fitness - Sua jornada começa aqui</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+    <a class="navbar-brand fw-bold fs-2" href="#">Rocha Fitness</a>
+         
+    </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('cadastro') }}">Matricule-se</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('login') }}">Área do Aluno</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="bg-dark text-white text-center py-5">
+    <h1>Bem-vindo à Rocha Fitness</h1>
+    <p class="lead">Transforme seu corpo e sua vida com nossos treinos e planos incríveis</p>
+  </header>
+
+  <!-- Planos -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Nossos Planos</h2>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col">
+        <div class="card h-100 border-primary">
+          <div class="card-body text-center">
+            <h5 class="card-title">Mensal</h5>
+            <p class="card-text fw-bold">R$ 99,90/mês</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-success">
+          <div class="card-body text-center">
+            <h5 class="card-title">Trimestral</h5>
+            <p class="card-text">R$ 269,90 (economize 10%)</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-warning">
+          <div class="card-body text-center">
+            <h5 class="card-title">Semestral</h5>
+            <p class="card-text">R$ 499,90 (economize 15%)</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-danger">
+          <div class="card-body text-center">
+            <h5 class="card-title">Anual</h5>
+            <p class="card-text">R$ 899,90 (economize 25%)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tipos de Aula -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Tipos de Aulas</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Zumba</h5>
+              <p class="card-text">Aula animada com dança e exercícios aeróbicos. Queime calorias se divertindo!</p>
+              <p>🗓 19:00 PM</p>
+              <p>🕒 60Min</p>
+              <br>
+              <p>Benefícios</p>
+              <ul>
+                <li>Melhora o condicionamento físico</li>
+                <li>Melhora a resistência</li>
+                <li>Queima caloria</li>
+                <li>Melhora a coordenação</li>
+              </ul>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="https://source.unsplash.com/400x250/?stretching,yoga" class="card-img-top" alt="Alongamento">
+            <div class="card-body">
+              <h5 class="card-title">Alongamento</h5>
+              <p class="card-text">Melhore sua flexibilidade e postura com aulas guiadas por especialistas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="https://source.unsplash.com/400x250/?bodybuilding,gym" class="card-img-top" alt="Musculação">
+            <div class="card-body">
+              <h5 class="card-title">Musculação</h5>
+              <p class="card-text">Treinos personalizados para ganhar massa muscular e força.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    © 2025 Rocha Fitness. Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>
