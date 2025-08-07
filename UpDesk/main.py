@@ -70,9 +70,9 @@ def login():
     senha = data['senha']
 
     usuario = Usuario.query.filter_by(email=email, senha=senha).first()
-    session['usuario_nome'] = Usuario["nome"]
     if not usuario:
         return jsonify({"mensagem": "Usuário ou senha inválidos"}), 401
+    session['usuario_nome'] = usuario.nome
 
     return jsonify({
         "mensagem": "Login realizado com sucesso!",
@@ -91,14 +91,9 @@ def home():
     nome_usuario = session.get('usuario_nome', 'Usuário')
     return render_template('home.html', nome_usuario=nome_usuario)
 
-# Tela de abertura de chamado
+# abrir chamado (salvar no banco)
 @app.route('/chamado')
 def chamado():
-    return render_template('chamado.html')
-
-# API para abrir chamado (salvar no banco)
-@app.route('/chamado', methods=['POST'])
-def abrir_chamado():
     data = request.json
     if not data:
         return jsonify({"mensagem": "Dados inválidos"}), 400
@@ -121,6 +116,11 @@ def abrir_chamado():
 @app.route('/ver-chamado')
 def ver_chamado():
     return render_template('Verchamado.html')
+
+
+@app.route('/ger-usuarios')
+def ger_usuarios():
+    return render_template('ger_usuarios.html')
 
 
 # Inicia servidor
